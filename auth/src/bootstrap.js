@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById("movie_root"));
+const root = ReactDOM.createRoot(document.getElementById("auth_root"));
 
 root.render(
   <BrowserRouter>

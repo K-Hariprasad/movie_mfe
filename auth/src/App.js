@@ -2,7 +2,7 @@ import React from 'react'
 
 function App() {
   return (
-    <div>Movie Remote App</div>
+    <div>Auth Remote App</div>
   )
 }
 

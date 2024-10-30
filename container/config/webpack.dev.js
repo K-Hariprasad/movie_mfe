@@ -1,7 +1,7 @@
 const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const commonConfig = require("./webpack.common");
-const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 const devConfig = {
   mode: "development",
@@ -16,11 +16,22 @@ const devConfig = {
       template: "./public/index.html",
     }),
     new ModuleFederationPlugin({
-      name : 'container',
-      remotes : {
-        movieApp : 'movies@http://localhost:8082/remoteEntry.js'
-      }
-    })
+      name: "container",
+      remotes: {
+        movieApp: "movies@http://localhost:8082/remoteEntry.js",
+      },
+      shared: {
+        react: {
+          singleton: true,
+        },
+        "react-dom": {
+          singleton: true,
+        },
+        "react-router-dom": {
+          singleton: true,
+        },
+      },
+    }),
   ],
 };
 

@@ -14,7 +14,7 @@ function Listing() {
         <div
           key={movie.id}
           className="movie-card"
-          onClick={() => navigate(`movies/${movie.id}`)}
+          onClick={() => navigate(`/movies/${movie.id}`)}
         >
           <img
             src={`${imageBasePath}/${movie.poster_path}`}

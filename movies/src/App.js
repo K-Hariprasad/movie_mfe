@@ -1,15 +1,10 @@
 import React from "react";
-import Listing from "./pages/listing";
-import { Routes, Route } from "react-router-dom";
-import Details from "./pages/details";
+import { RouterProvider } from "react-router-dom";
 
-function App() {
+function App({ router }) {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Listing />} />
-        <Route path="/movies/:id" element={<Details />} />
-      </Routes>
+      <RouterProvider router={router} />
     </>
   );
 }

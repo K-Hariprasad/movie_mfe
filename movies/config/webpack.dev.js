@@ -22,7 +22,7 @@ const devConfig = {
       name: "movies",
       filename: "remoteEntry.js",
       exposes: {
-        "./movieIndex": "./src/App.js",
+        "./movieIndex": "./src/bootstrap.js",
       },
       shared: {
         react: {

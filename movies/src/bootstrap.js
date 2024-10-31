@@ -1,12 +1,38 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createMemoryRouter,
+} from "react-router-dom";
+import routes from "./routes";
 
-const root = ReactDOM.createRoot(document.getElementById("movie_root"));
+const mount = (el, { onNavigate, initialPath, defaultRouter }) => {
+  const root = createRoot(el);
+  const router =
+    defaultRouter ||
+    createMemoryRouter(routes, { initialEntries: [initialPath] });
 
-root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-);
+  if (onNavigate) {
+    router.subscribe(({ location }) => onNavigate(location));
+  }
+
+  root.render(<App router={router} />);
+
+  return {
+    onParentnavigate: ({ pathname: nextPathname }) => {
+      if (router.state.location.pathname !== nextPathname) {
+        router.navigate(nextPathname);
+      }
+    },
+  };
+};
+
+if (process.env.NODE_ENV === "development") {
+  const el = document.getElementById("movie_root");
+  if (el) {
+    mount(el, { defaultRouter: createBrowserRouter(routes) });
+  }
+}
+
+export { mount };

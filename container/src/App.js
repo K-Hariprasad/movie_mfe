@@ -1,11 +1,9 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import "./App.css";
 import Header from "./components/header";
 import { Routes, Route } from "react-router-dom";
 import Landing from "./pages/landing";
-import Loader from "./components/loader";
-
-const MovieRemote = lazy(() => import("movieApp/movieIndex"));
+import MovieRemote from "./remotes/MovieRemote";
 
 function App() {
   return (
@@ -13,14 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route
-          path="/movies"
-          element={
-            <Suspense fallback={<Loader />}>
-              <MovieRemote />
-            </Suspense>
-          }
-        />
+        <Route path="/movies/*" element={<MovieRemote />} />
       </Routes>
     </>
   );

@@ -1,0 +1,63 @@
+/* Background styling */
+.landing-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    background: linear-gradient(to bottom right, #1c1c1e, #343a40);
+    color: #f5f5f5;
+}
+
+/* Main content styling */
+.content {
+    text-align: center;
+}
+
+/* Title styling */
+.app-title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #e50914;
+    font-family: 'Helvetica', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* Button styling */
+.button-group {
+    display: flex;
+    gap: 20px;
+}
+
+.button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Specific button styling */
+.movies-button {
+    background-color: #e50914;
+}
+
+.sign-in-button {
+    background-color: #007bff;
+}
+
+/* Hover effects */
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.movies-button:hover {
+    background-color: #d40813;
+}
+
+.sign-in-button:hover {
+    background-color: #0069d9;
+}
